@@ -10,3 +10,5 @@ This is a simple Quarto document for testing.
 ```{r}
 # Hello World
 ```
+
+This line was added in main branch and will conflict.

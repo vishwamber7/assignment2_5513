@@ -1,0 +1,15 @@
+{
+  "hash": "93eb9a8db708b892f68e3d11881d2c93",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Example Quarto File\"\nformat: html\n---\n\n\n\n## Hello World\n\nThis is a simple Quarto document for testing.\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# Hello World\n```\n:::",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

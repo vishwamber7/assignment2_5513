@@ -1,0 +1,18 @@
+---
+title: "Assignment 2"
+author: "Vishwamber Reddy"
+date: "11 May 2025"
+format: html
+---
+
+## Objectives
+
+This guide demonstrates the use of Git, GitHub, and the command-line interface for collaborative and reproducible practices, using a basic RStudio project setup.
+
+## 1. Create a New RStudio Project
+
+I created a new RStudio Project named Assignment2.
+
+Inside the project folder, I created a file named example.qmd with the following content:
+
+![Knitted HTML Output](Images/example_output.png)

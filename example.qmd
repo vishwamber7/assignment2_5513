@@ -1,0 +1,12 @@
+---
+title: "Example Quarto File"
+format: html
+---
+
+## Hello World
+
+This is a simple Quarto document for testing.
+
+```{r}
+# Hello World
+```

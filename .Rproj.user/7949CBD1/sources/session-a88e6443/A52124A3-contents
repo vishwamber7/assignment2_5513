@@ -1,0 +1,33 @@
+---
+title: "Assignment 2"
+author: "Vishwamber Reddy"
+date: "11 May 2025"
+format: html
+---
+
+## Objectives
+
+This guide demonstrates the use of Git, GitHub, and the command-line interface for collaborative and reproducible practices, using a basic RStudio project setup.
+
+## 1. Create a New RStudio Project
+
+I created a new RStudio Project named Assignment2.
+
+Inside the project folder, I created a file named example.qmd
+
+### Knit to HTML
+
+I used the **Render** button in RStudio to knit `example.qmd` into HTML. The output file `example.html` was successfully generated and previewed.
+
+![Knitted HTML Output](Images/example_output.png)
+
+## 2. Initialise Git Repository and Push to GitHub
+
+In the terminal:
+
+```{bash}
+cd 5513_Assignment2
+git init
+git add .
+git commit -m "Initial commit with Quarto file"
+```

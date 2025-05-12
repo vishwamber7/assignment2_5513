@@ -11,4 +11,4 @@ This is a simple Quarto document for testing.
 # Hello World
 ```
 
-This line was added in main branch and will conflict.
+This line includes content from both branches.

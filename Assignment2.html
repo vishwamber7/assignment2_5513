@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -82,14 +116,143 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="create-a-new-rstudio-project" class="level2">
 <h2 class="anchored" data-anchor-id="create-a-new-rstudio-project">1. Create a New RStudio Project</h2>
-<p>I created a new RStudio Project named Assignment2.</p>
-<p>Inside the project folder, I created a file named example.qmd with the following content:</p>
+<p>I created a new RStudio Project named 5513_Assignment2.</p>
+<p>Inside the project folder, I created a file named example.qmd</p>
+<section id="knit-to-html" class="level3">
+<h3 class="anchored" data-anchor-id="knit-to-html">Knit to HTML</h3>
+<p>I used the <strong>Render</strong> button in RStudio to knit <code>example.qmd</code> into HTML. The output file <code>example.html</code> was successfully generated and previewed.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="Images/example_output.png" class="img-fluid figure-img"></p>
 <figcaption>Knitted HTML Output</figcaption>
 </figure>
 </div>
+</section>
+</section>
+<section id="initialise-git-repository-and-push-to-github" class="level2">
+<h2 class="anchored" data-anchor-id="initialise-git-repository-and-push-to-github">2. Initialise Git Repository and Push to GitHub</h2>
+<p>In the terminal:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> 5513_Assignment2</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Initial commit with Quarto file"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="create-github-repository" class="level3">
+<h3 class="anchored" data-anchor-id="create-github-repository">Create GitHub Repository</h3>
+<p>I created a new repository on GitHub named assignment2-etc5513, then added the remote:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin https://github.com/vishwamber7/assignment2-etc5513.git</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-M</span> main</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="create-a-branch-and-modify-file" class="level2">
+<h2 class="anchored" data-anchor-id="create-a-branch-and-modify-file">3. Create a Branch and Modify File</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> testbranch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>I modified example.qmd by adding this line under the existing text:</p>
+<p>“This line was added in testbranch.”</p>
+<p>Then:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add example.qmd</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Modified example.qmd in testbranch"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin testbranch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="add-data-folder-and-amend-commit" class="level2">
+<h2 class="anchored" data-anchor-id="add-data-folder-and-amend-commit">4. Add Data Folder and Amend Commit</h2>
+<p>I created a folder called data and added the CSV file from Assignment 1.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> data </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ../etc5513-assignment-1-vishwamber7Assignment1/modern-renewable-prod.csv data/</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add data/modern-renewable-prod.csv</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">--amend</span> <span class="at">--no-edit</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">--force</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="conflict-setup-in-main-branch" class="level2">
+<h2 class="anchored" data-anchor-id="conflict-setup-in-main-branch">5. Conflict Setup in main Branch</h2>
+<p>Switching back to main:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>I edited example.qmd differently by changing the same section modified in testbranch:</p>
+<p>“This line was added in main branch and will conflict.”</p>
+<p>Then:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add example.qmd</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Conflicting change in example.qmd in main"</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="merge-branch-and-fix-conflict" class="level2">
+<h2 class="anchored" data-anchor-id="merge-branch-and-fix-conflict">6. Merge Branch and Fix Conflict</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge testbranch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This created a merge conflict in example.qmd. Git output:</p>
+<p>Auto-merging example.qmd<br>
+CONFLICT (content): Merge conflict in example.qmd<br>
+Automatic merge failed; fix conflicts and then commit the result.</p>
+<p>I opened example.qmd and resolved the conflict manually:</p>
+<p>“This line includes content from both branches.”</p>
+<p>Then:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add example.qmd</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Resolved merge conflict between main and testbranch"</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Conflict resolved and pushed to GitHub.</p>
+</section>
+<section id="tag-commit" class="level2">
+<h2 class="anchored" data-anchor-id="tag-commit">7. Tag Commit</h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> tag <span class="at">-a</span> v1.0 <span class="at">-m</span> <span class="st">"Version 1.0 release after merge"</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin v1.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="delete-branch" class="level2">
+<h2 class="anchored" data-anchor-id="delete-branch">8. Delete Branch</h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-d</span> testbranch</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin <span class="at">--delete</span> testbranch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>testbranch deleted locally and remotely.</p>
+</section>
+<section id="condensed-git-log" class="level2">
+<h2 class="anchored" data-anchor-id="condensed-git-log">9. Condensed Git Log</h2>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Output:</p>
+<p>a70ec5e (HEAD -&gt; main, tag: v1.0, origin/main) Resolved merge conflict between main and testbranch<br>
+a70d25b Conflicting change in example.qmd in main<br>
+f3dee0b Modified example.qmd in testbranch<br>
+5caaed0 Initial commit with Quarto file</p>
+</section>
+<section id="add-plot-and-undo-commit" class="level2">
+<h2 class="anchored" data-anchor-id="add-plot-and-undo-commit">10. Add Plot and Undo Commit</h2>
+<p>I added the following to example.qmd:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Images/example_plot.png" class="img-fluid figure-img"></p>
+<figcaption>Example Plot Code</figcaption>
+</figure>
+</div>
+<p>Then:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add example.qmd </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Added simple plot to example.qmd"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To undo the commit but keep changes:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--soft</span> HEAD~1 </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The commit was undone, but changes remained in the working directory.</p>
+</section>
+<section id="summary-of-git-skills-demonstrated" class="level2">
+<h2 class="anchored" data-anchor-id="summary-of-git-skills-demonstrated">Summary of Git Skills Demonstrated</h2>
+<ul>
+<li>Git init, add, commit</li>
+<li>Pushing to GitHub</li>
+<li>Branching and merging</li>
+<li>Conflict resolution</li>
+<li>Amending commits</li>
+<li>Using tags</li>
+<li>Deleting branches</li>
+<li>Condensed git logs</li>
+<li>Undoing commits with reset</li>
+</ul>
+</section>
+<section id="commit-messages" class="level2">
+<h2 class="anchored" data-anchor-id="commit-messages">Commit Messages</h2>
+<p>Commit messages were concise and descriptive:</p>
+<ul>
+<li>Initial commit with Quarto file</li>
+<li>Modified example.qmd in testbranch</li>
+<li>Conflicting change in example.qmd in main</li>
+<li>Resolved merge conflict between main and testbranch</li>
+<li>Added simple plot to example.qmd</li>
+</ul>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>This guide demonstrates essential collaborative Git practices, including conflict resolution, branching, tagging, and commit management, ensuring reproducibility and clean version history in data science projects.</p>
 </section>
 
 </main>

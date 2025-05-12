@@ -12,3 +12,30 @@ This is a simple Quarto document for testing.
 ```
 
 This line includes content from both branches.
+
+```{r}
+## Renewable Electricity Production Over Time
+
+library(tidyverse)
+
+# Read the data
+data <- read.csv("data/modern-renewable-prod.csv")
+
+# Filter for World
+data_long <- data %>%
+  filter(Entity == "World") %>%
+  pivot_longer(
+    cols = starts_with("Electricity"),
+    names_to = "Source",
+    values_to = "TWh"
+  )
+
+# Plot
+ggplot(data_long, aes(x = Year, y = TWh, color = Source)) +
+  geom_line(size = 1.2) +
+  labs(title = "Renewable Electricity Production of World",
+       x = "Year",
+       y = "Electricity Production (TWh)") +
+  theme_minimal()
+
+```
